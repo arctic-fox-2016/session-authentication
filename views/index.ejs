@@ -1,0 +1,11 @@
+<% include header %>
+
+    <h1>Welcome to Session Authentication</h1>
+    <h3><%= status %></h3>
+    <% if (login) { %>
+      <a href="/logout"><button type="button" class="btn btn-default">Logout</button></a>
+    <% } else { %>
+      <a href="/login"><button type="button" class="btn btn-default">Login</button></a>
+      <a href="/register"><button type="button" class="btn btn-default">Register</button></a>
+    <% } %>
+<% include footer %>

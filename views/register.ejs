@@ -1,16 +1,13 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>Session Authentication</title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<% include header %>
+  <h1>Please register</h1>
+  <% if (retry) { %>
+    <h3>Username Taken, please retry</h3>
+  <% } %>
 
-  </head>
-  <body>
     <div class="container">
       <div class="row">
         <div class="col-md-6 col-md-offset-3">
-          <form method="post" action="/register">
+          <form method="post" action="/register" id="register-form">
 
             <!-- Username -->
             <label>Username</label>
@@ -30,19 +27,43 @@
               <input name="password" type="password" class="form-control" placeholder="Password" aria-describedby="basic-addon1">
             </div>
 
-            <!-- Role -->
-            <label>Role</label>
-            <div class="form-group">
-              <input name="role" type="text" class="form-control" placeholder="Role" aria-describedby="basic-addon1">
-            </div>
-
             <!-- Submit -->
-            <button type="submit" class="btn btn-default">Register</button>
+            <div class="form-group">
+              <button type="submit" class="btn btn-default">Register</button>
+            </div>
           </form>
         </div>
       </div>
     </div>
 
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-  </body>
-</html>
+<% include script %>
+
+  <script>
+    jQuery.validator.setDefaults({
+      debug: true,
+      success: "valid"
+    });
+
+    $("#register-form").validate({
+      rules: {
+        username: {
+          required: true
+        },
+        email: {
+          required: true,
+          email: true
+        },
+        password: {
+          required: true
+        },
+        role: {
+          required: true
+        }
+      },
+      submitHandler: function(form) {
+        form.submit();
+      }
+    });
+  </script>
+
+<% include footer %>

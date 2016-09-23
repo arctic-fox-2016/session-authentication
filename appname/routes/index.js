@@ -8,14 +8,15 @@ router.get('/', function(req, res, next) {
 })
 
 router.post('/register', function(req, res, next) {
-  models.users.create({
-    username: req.params.username,
-    email: req.params.email,
-    password: req.params.password,
-    role: req.params.role
-  }).then(function(todo) {
-    res.redirect('/')
-  });
+  console.log(req)
+  // models.users.create({
+  //   username: req.params.username,
+  //   email: req.params.email,
+  //   password: req.params.password,
+  //   role: req.params.role
+  // }).then(function(todo) {
+  //   res.redirect('/')
+  // });
 })
 
 module.exports = router;

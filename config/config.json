@@ -1,0 +1,23 @@
+{
+  "development": {
+    "username": "hacktiv8-6",
+    "password": "password",
+    "database": "authdb",
+    "host": "localhost",
+    "dialect": "postgres"
+  },
+  "test": {
+    "username": "hacktiv8-6",
+    "password": "password",
+    "database": "authdb",
+    "host": "localhost",
+    "dialect": "postgres"
+  },
+  "production": {
+    "username": "hacktiv8-6",
+    "password": "password",
+    "database": "authdb",
+    "host": "localhost",
+    "dialect": "postgres"
+  }
+}
